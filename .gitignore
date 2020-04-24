@@ -1,0 +1,20 @@
+# 全てのファイルを一度無視
+/*
+
+# さらにドットから始まる設定ファイルを無視
+/.*
+
+# "無視したくないファイル"は以下に"![ファイル名]"で指定
+##### Gitで管理するファイルリスト #####
+!.vim/
+!.vimrc
+!.zshrc
+!.zshenv
+!.zprofile
+!.zpreztorc
+!.zlogout
+!.zlogin
+!.Brewfile
+!.zprezto/
+
+!.gitignore
