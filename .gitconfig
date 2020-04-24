@@ -1,3 +1,16 @@
+[color]
+    ui = true
+
+[push]
+	default = current
+    
+[core]
+	quotepath = false
+	editor = vim
+    
+[merge]
+	tool = vimdiff
+
 [alias]
     co = fetch && checkout
     cob = checkout -b
@@ -25,7 +38,3 @@
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     f = "!git ls-files | grep -i"
-
-[user]
-	name = hayate.tanaka
-	email = tanattyokana@gmail.com
