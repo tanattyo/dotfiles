@@ -16,5 +16,6 @@
 !.zlogin
 !.Brewfile
 !.zprezto/
+!README.md
 
 !.gitignore
