@@ -12,6 +12,7 @@ fi
 
 # alias
 # alias - file
+alias g='git'
 alias c='clear'
 alias f='open .'
 alias l='ls -CF'
@@ -30,17 +31,6 @@ alias ....='cd ../../..'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
-
-# alias - git
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gco='git checkout'
-alias gd='git diff'
-alias gf='git fetch'
-alias gp='git push'
-alias gs='git status'
 
 # alias - others
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
