@@ -19,5 +19,6 @@
 !.gitconfig
 !README.md
 !init.sh
+!langconf.sh
 
 !.gitignore

@@ -11,3 +11,5 @@ jobs:
       run: bash init.sh
     - name: Run brew bundle
       run: brew bundle --global
+    - name: Run langconf.sh
+      run: bash langconf.sh
