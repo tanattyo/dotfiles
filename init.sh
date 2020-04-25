@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # シンボリックリンクの作成
-IGNORE_PATTERN="^\.(git|gitignore|github)"
+IGNORE_PATTERN="^\.(git|gitignore|github|huskyrc)"
 
 echo "Create dotfile links."
 for dotfile in .??*; do

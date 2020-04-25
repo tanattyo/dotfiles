@@ -21,5 +21,8 @@
 !init.sh
 !langconf.sh
 !.github/
+!package.json
+!commitlint.config.js
+!.huskyrc
 
 !.gitignore
