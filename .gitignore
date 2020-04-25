@@ -20,5 +20,6 @@
 !README.md
 !init.sh
 !langconf.sh
+!.github/
 
 !.gitignore
