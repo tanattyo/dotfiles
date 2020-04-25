@@ -1,9 +1,18 @@
-# このDirectoryに個人用メールを紐付ける
-git config --local user.name "tanattyo"
-git config --local user.email "tanattyokana@gmail.com"
+#!/bin/bash
 
 # シンボリックリンクの作成
-bash dotfileLink.sh
+IGNORE_PATTERN="^\.(git|gitignore|github)"
+
+echo "Create dotfile links."
+for dotfile in .??*; do
+    [[ $dotfile =~ $IGNORE_PATTERN ]] && continue
+    ln -snfv "$(pwd)/$dotfile" "$HOME/$dotfile"
+done
+echo "Success"
+
+# このリポジトリには個人用メールを紐付ける
+git config --local user.name "tanattyo"
+git config --local user.email "tanattyokana@gmail.com"
 
 # brew install
 brew bundle --global
