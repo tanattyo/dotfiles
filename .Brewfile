@@ -30,7 +30,6 @@ brew "tfenv", link: false
 brew "tree"
 brew "vim"
 brew "wget"
-brew "yarn"
 brew "zsh"
 brew "zsh-completions"
 
