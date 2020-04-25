@@ -23,6 +23,7 @@
 !commitlint.config.js
 !.huskyrc
 !yarn.lock
+!.editorconfig
 
 !.github/
 !.gitconfig
