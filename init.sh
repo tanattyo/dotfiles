@@ -13,7 +13,3 @@ echo "Success"
 # このリポジトリには個人用メールを紐付ける
 git config --local user.name "tanattyo"
 git config --local user.email "tanattyokana@gmail.com"
-
-# brew install
-brew bundle --global
-brew bundle check --global

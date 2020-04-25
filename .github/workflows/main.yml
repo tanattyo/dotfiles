@@ -7,5 +7,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: install dotfiles
+    - name: Run init.sh
       run: bash init.sh
+    - name: Run brew bundle
+      run: brew bundle --global
