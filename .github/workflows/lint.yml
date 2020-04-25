@@ -8,7 +8,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: Install required packages
+      run: brew install shellcheck
     - name: Check init.sh
       run: shellcheck ${GITHUB_WORKSPACE}/init.sh
     - name: Check langconf.sh
