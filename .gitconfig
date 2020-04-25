@@ -3,11 +3,11 @@
 
 [push]
 	default = current
-    
+
 [core]
 	quotepath = false
 	editor = vim
-    
+
 [merge]
 	tool = vimdiff
 

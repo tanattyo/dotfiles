@@ -16,14 +16,15 @@
 !.zlogin
 !.Brewfile
 !.zprezto/
-!.gitconfig
 !README.md
 !init.sh
 !langconf.sh
-!.github/
 !package.json
 !commitlint.config.js
 !.huskyrc
 !yarn.lock
 
+!.github/
+!.gitconfig
+!.gitmodules
 !.gitignore

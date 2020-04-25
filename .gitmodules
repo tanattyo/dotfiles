@@ -1,0 +1,2 @@
+[submodule ".zprezto"]
+	url = https://github.com/sorin-ionescu/prezto.git
