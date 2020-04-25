@@ -4,3 +4,7 @@ git config --local user.email "tanattyokana@gmail.com"
 
 # シンボリックリンクの作成
 sh dotfileLink.sh
+
+# brew install
+brew bundle --global
+brew bundle check --global

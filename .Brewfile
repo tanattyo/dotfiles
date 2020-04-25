@@ -1,3 +1,11 @@
+# Brew bundle command list
+# see https://github.com/Homebrew/homebrew-bundle
+# brew bundle: Brewfileから一括ダウンロード
+# brew bundle dump: ダウンロードリストをダンプ
+# brew bundle cleanup: リストにないものを削除する
+# brew bundle check: リストにあるもののうちアップグレードが必要なものをリストアップ
+# brew bundle list: リストを一覧表示する
+
 # Brewfile
 cask_args appdir: "/Applications"
 tap "homebrew/bundle"
@@ -12,10 +20,9 @@ brew "imagemagick"
 brew "node"
 brew "openssl"
 brew "peco"
-brew "sshrc"
+brew "shellcheck"
 brew "p7zip"
 brew "python"
-brew "r"
 brew "tmux"
 brew "terraform"
 brew "terraformer"
@@ -31,7 +38,7 @@ brew "zsh-completions"
 cask "alfred"
 cask "appcleaner"
 cask "atom"
-cask "caffeine"h
+cask "caffeine"
 cask "coteditor"
 cask "docker"
 cask "discord"
