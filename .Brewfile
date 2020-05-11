@@ -24,7 +24,7 @@ brew "shellcheck"
 brew "p7zip"
 brew "tmux"
 brew "terraformer"
-brew "tfenv", link: false
+brew "tfenv"
 brew "tree"
 brew "vim"
 brew "wget"
