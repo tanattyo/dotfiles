@@ -5,10 +5,15 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
+# Source .alias_ssh_agent
+test -e ".alias_ssh_agent"; source ".alias_ssh_agent"
+
+# Source Prezto
+test -e ".zprezto/init.zsh"; source ".zprezto/init.zsh"
 
 # alias
 # alias - file
@@ -34,3 +39,6 @@ alias grep='grep --color=auto'
 
 # alias - others
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# alisa - docker
+alias d-bash='. alias_script/d-bash.sh'

@@ -24,6 +24,8 @@
 !.huskyrc
 !yarn.lock
 !.editorconfig
+!.alias_ssh_agent
+!alias_script
 
 !.github/
 !.gitconfig
