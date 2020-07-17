@@ -10,10 +10,10 @@
   eval "$(rbenv init -)"
 
 # Source .alias_ssh_agent
-test -e ".alias_ssh_agent"; source ".alias_ssh_agent"
+test -e "${HOME}/.dotfiles/.alias_ssh_agent"; source "${HOME}/.dotfiles/.alias_ssh_agent"
 
 # Source Prezto
-test -e ".zprezto/init.zsh"; source ".zprezto/init.zsh"
+test -e "${HOME}/.dotfiles/.zprezto/init.zsh"; source "${HOME}/.dotfiles/.zprezto/init.zsh"
 
 # alias
 # alias - file
@@ -41,4 +41,5 @@ alias grep='grep --color=auto'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # alisa - docker
-alias d-bash='. alias_script/d-bash.sh'
+alias d-bash='. ~/.dotfiles/alias_script/d-bash.sh'
+alias dc='docker-compose'
