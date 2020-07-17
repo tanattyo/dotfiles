@@ -37,6 +37,10 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
+# alias - docker
+alias d='docker'
+alias dc='docker-compose'
+
 # alias - others
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
