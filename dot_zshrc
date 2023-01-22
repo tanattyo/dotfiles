@@ -31,8 +31,14 @@ alias dc='docker-compose'
 # alias - others
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
+# Set homebrew PATH
+if [[ "$OSTYPE" == darwin* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # go
 eval "$(goenv init -)"
+export GOENV_DISABLE_GOPATH=1
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
