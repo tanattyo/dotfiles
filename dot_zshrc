@@ -41,11 +41,8 @@ alias grep='grep --color=auto'
 
 # alias - docker
 alias d='docker'
+alias d-bash='docker exec -it $(docker ps | peco | awk "{print \$1}") bash'
 alias dc='docker-compose'
 
 # alias - others
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
-# alisa - docker
-alias d-bash='. ~/.dotfiles/alias_script/d-bash.sh'
-alias dc='docker-compose'
