@@ -5,9 +5,10 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 
 # brew
-brew "curl"
 brew "chezmoi"
+brew "curl"
 brew "docker", link: false
+brew "ffmpeg"
 brew "gist"
 brew "git"
 brew "goenv"
@@ -21,7 +22,6 @@ brew "vim"
 brew "wget"
 brew "zsh-completions"
 brew "zsh"
-brew "ffmpeg"
 
 # cask
 cask "alfred"
