@@ -36,12 +36,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# go
-eval "$(goenv init -)"
-export GOENV_DISABLE_GOPATH=1
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
 # oh-my-zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
