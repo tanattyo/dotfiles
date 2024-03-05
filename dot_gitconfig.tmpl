@@ -1,15 +1,21 @@
+{{- if .email }}
+[user]
+  name = {{ .name | quote }}
+  email = {{ .email | quote }}
+{{- end }}
+
 [color]
   ui = true
 
 [push]
-	default = current
+  default = current
 
 [core]
-	quotepath = false
-	editor = vim
+  quotepath = false
+  editor = vim
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 
 [alias]
   co = fetch && checkout
