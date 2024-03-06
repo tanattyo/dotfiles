@@ -30,6 +30,7 @@
   cm = commit -m
   cp = cherry-pick
   amend = commit --amend -m
+  main = !git checkout main && git pull origin
   master = !git checkout master && git pull origin
   develop = !git checkout develop && git pull origin develop
   pu = !git push origin `git branch --show-current`
