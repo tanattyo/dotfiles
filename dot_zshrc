@@ -140,3 +140,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# set nodebrew path
+export PATH=$HOME/.nodebrew/current/bin:$PATH
