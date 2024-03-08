@@ -4,18 +4,25 @@
   email = {{ .email | quote }}
 {{- end }}
 
-[color]
-  ui = true
+[init]
+  defaultBranch = main
+
+[core]
+  ignorecase = false
+  quotepath = false
+  editor = vim
 
 [push]
   default = current
 
-[core]
-  quotepath = false
-  editor = vim
+[pull]
+  rebase = true
 
 [merge]
   tool = vimdiff
+
+[color]
+  ui = true
 
 [alias]
   co = fetch && checkout
