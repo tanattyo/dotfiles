@@ -1,6 +1,12 @@
 ![CI](https://github.com/tanattyo/dotfiles/workflows/CI/badge.svg)
 ![lint](https://github.com/tanattyo/dotfiles/workflows/lint/badge.svg)
 
+# chezmoi について
+
+- ソースディレクトリは `~/.local/share/chezmoi`
+- 構成ファイルは `~/.config/chezmoi/chezmoi.toml`
+- ドットファイルは `dot_` が対象です
+
 # Quick start
 
 ## Concept
@@ -25,6 +31,13 @@ brew install chezmoi
 ドットファイルをインストール
 ```
 chezmoi init --apply https://github.com/tanattyo/dotfiles.git
+```
+
+ステートを記入
+```
+[data]
+    email="tanattyokana@gmail.con"
+    name="Hayate Tanaka"
 ```
 
 ## よく使うコマンド
