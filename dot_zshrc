@@ -21,6 +21,13 @@ if [[ -d "$HOME/.pyenv" ]]; then
 fi
 # Node.js
 pathadd "$HOME/.nodebrew/current/bin"
+
+# Go（goenv）
+export GOENV_ROOT=$HOME/.goenv
+pathadd "$HOME/.goenv/shims:$HOME/.goenv/bin:$PATH"
+pathadd "$GOPATH/bin:$PATH"
+eval "$(goenv init -)"
+
 # others
 pathadd "/Users/hayate-tanaka/.local/bin"
 
