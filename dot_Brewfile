@@ -21,6 +21,7 @@ brew "tree"
 brew "vim"
 brew "wget"
 brew "zsh"
+brew "rbenv"
 
 # cask
 cask "appcleaner"
