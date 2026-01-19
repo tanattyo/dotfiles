@@ -40,11 +40,12 @@ chezmoi init --apply https://github.com/tanattyo/dotfiles.git
 ステートを記入
 
 ```chezmoi edit chezmoi.toml
+
 ```
 
 ```toml
 [data]
-    email="tanattyokana@gmail.con"
+    email="tanattyokana@gmail.com"
     name="Hayate Tanaka"
 ```
 
@@ -77,3 +78,18 @@ brew bundle --global
 brew bundle cleanup --global --force
 brew bundle dump
 ```
+
+## 各言語のバージョン管理
+
+### Node.js
+
+- [nvm](https://github.com/nvm-sh/nvm) を利用
+- インストールは自動化していない、手動で行う
+
+### Python
+
+- [uv](https://github.com/astral-sh/uv) を利用
+
+### Go
+
+- [goenv](https://github.com/go-nv/goenv) を利用
