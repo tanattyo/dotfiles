@@ -30,6 +30,9 @@ eval "$(rbenv init -)"
 # others
 pathadd "/Users/hayate-tanaka/.local/bin"
 
+# try
+eval "$(try init)"
+
 # Aliases
 # General aliases
 alias l='ls -CF' # シンプルな列表示
