@@ -23,6 +23,10 @@ pathadd "$HOME/.goenv/shims:$HOME/.goenv/bin:$PATH"
 pathadd "$GOPATH/bin:$PATH"
 eval "$(goenv init -)"
 
+# Ruby
+pathadd "$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # others
 pathadd "/Users/hayate-tanaka/.local/bin"
 
