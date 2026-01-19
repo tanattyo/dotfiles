@@ -39,8 +39,8 @@ chezmoi init --apply https://github.com/tanattyo/dotfiles.git
 
 ステートを記入
 
-```chezmoi edit chezmoi.toml
-
+```bash
+chezmoi edit chezmoi.toml
 ```
 
 ```toml
