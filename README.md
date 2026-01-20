@@ -19,28 +19,8 @@
 
 ## 新しいマシンで使い始める
 
-Brew インストール（<https://brew.sh/index_ja）>
-
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-chezmoi をインストールする
-
-```bash
-brew install chezmoi
-```
-
-ドットファイルをインストール
-
-```bash
-chezmoi init --apply https://github.com/tanattyo/dotfiles.git
-```
-
-ステートを記入
-
-```bash
-chezmoi edit chezmoi.toml
+bash setup.sh
 ```
 
 ```toml
