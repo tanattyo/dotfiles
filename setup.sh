@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # シンボリックリンクの作成
 IGNORE_PATTERN="^\.(git|gitignore|github|huskyrc)"
