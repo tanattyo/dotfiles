@@ -1,2 +1,5 @@
-apply:
-	chezmoi apply
+# chezmoi
+
+.PHONY: update
+update:
+	chezmoi apply --verbose
