@@ -24,6 +24,19 @@ function install_chezmoi() {
     chezmoi init --apply $DOTFILE_REPO_URL
 }
 
+function install_mise() {
+    function is_mise_exists() {
+        command -v mise &>/dev/null
+    }
+
+    if ! is_mise_exists; then
+        echo "mise not found. Installing..."
+        curl https://mise.run | sh
+    else
+        echo "mise is already installed."
+    fi
+}
+
 function install_homebrew() {
     function is_homebrew_exists() {
         command -v brew &>/dev/null
@@ -39,6 +52,7 @@ function install_homebrew() {
 
 function main() {
     install_chezmoi
+    install_mise
     install_homebrew
 }
 

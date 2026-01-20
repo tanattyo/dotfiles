@@ -14,9 +14,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Node.js
-pathadd "$HOME/.nodebrew/current/bin"
-
 # Go
 export GOENV_ROOT=$HOME/.goenv
 pathadd "$HOME/.goenv/shims:$HOME/.goenv/bin:$PATH"
@@ -27,11 +24,14 @@ eval "$(goenv init -)"
 pathadd "$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Activate mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 # others
 pathadd "/Users/hayate-tanaka/.local/bin"
 
 # try
-eval "$(try init)"
+eval "$(try init ~/src/tries)"
 
 # Aliases
 # General aliases
