@@ -1,7 +1,6 @@
 # Chezmoi
 
 ![CI](https://github.com/tanattyo/dotfiles/workflows/CI/badge.svg)
-![lint](https://github.com/tanattyo/dotfiles/workflows/lint/badge.svg)
 
 ## chezmoi について
 
@@ -29,47 +28,7 @@ bash setup.sh
     name="Hayate Tanaka"
 ```
 
-## よく使うコマンド
+## その他
 
-### .dotfiles
-
-```bash
-git clone https://github.com/tanattyo/dotfiles.git .dotfiles
-cd .dotfiles
-git submodule update --init --recursive
-bash init.sh
-brew bundle --global
-bash langconf.sh
-```
-
-### chezmoi
-
-```bash
-chezmoi cd
-chezmoi add .Brewfile
-chezmoi edit .Brewfile
-chezmoi apply
-```
-
-### Brew
-
-```bash
-brew bundle --global
-brew bundle cleanup --global --force
-brew bundle dump
-```
-
-## 各言語のバージョン管理
-
-### Node.js
-
-- [nvm](https://github.com/nvm-sh/nvm) を利用
-- インストールは自動化していない、手動で行う
-
-### Python
-
-- [uv](https://github.com/astral-sh/uv) を利用
-
-### Go
-
-- [goenv](https://github.com/go-nv/goenv) を利用
+- Google 日本語入力は手動でインストールしてください
+<https://www.google.co.jp/ime/>
