@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # zshrc: Configuration for zsh shell
 
 # Set shell options
@@ -24,31 +26,11 @@ eval "$(goenv init -)"
 pathadd "$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# Activate mise
-eval "$(~/.local/bin/mise activate zsh)"
-
 # others
 pathadd "/Users/hayate-tanaka/.local/bin"
 
 # try
 eval "$(try init ~/src/tries)"
-
-# Aliases
-# General aliases
-alias l='ls -CF' # シンプルな列表示
-alias la='ls -A' # 隠しファイルを含む全表示
-alias ll='ls -alF' # 詳細表示
-alias ls='ls -G' # 色付き表示
-
-# Grep aliases
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-
-# Docker aliases
-alias d='docker'
-alias d-bash='docker exec -it $(docker ps | fzf | awk "{print \$1}") bash'
-alias dc='docker-compose'
 
 # History configuration
 HISTSIZE=10000                 # 保存する履歴の数
@@ -57,26 +39,16 @@ HISTFILE=~/.zsh_history        # 履歴ファイル
 setopt hist_ignore_dups        # 重複コマンドを無視
 setopt hist_reduce_blanks      # 無駄な空白を無視
 
-# Oh-my-zsh configuration
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="ys"
-
-plugins=(
-  aliases
-  alias-finder
-  git
-  zsh-autosuggestions
-  docker
-)
-
-# Oh-my-zsh update settings
-zstyle ':omz:update' mode disabled
-
 # Oh-my-zsh other settings
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+
 ENABLE_CORRECTION=true
 CASE_SENSITIVE=true
 HIST_STAMPS="yyyy-mm-dd"
 COMPLETION_WAITING_DOTS=true
 
-# Source Oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# Sheldon plugin manager
+eval "$(sheldon source)"
+
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/zsh-abbr/user-abbreviations.sh"
+export ABBR_AUTOLOAD=0

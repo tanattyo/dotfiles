@@ -4,8 +4,9 @@ cask_args appdir: "/Applications"
 tap "homebrew/bundle"
 
 # brew
+brew "sheldon"
+brew "eza"
 brew "curl"
-brew "docker-compose"
 brew "ffmpeg"
 brew "gist"
 brew "git"
