@@ -32,6 +32,11 @@ pathadd "/Users/hayate-tanaka/.local/bin"
 # try
 eval "$(try init ~/src/tries)"
 
+# neovim alias
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
+
 # History configuration
 HISTSIZE=10000                 # 保存する履歴の数
 SAVEHIST=10000                 # 保存する履歴のファイルサイズ
