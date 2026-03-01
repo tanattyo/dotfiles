@@ -81,6 +81,3 @@ source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-syntax-highlighting/zsh-sy
 if [[ -x "$HOME/.local/bin/mise" ]]; then
   eval "$("$HOME/.local/bin/mise" activate zsh)"
 fi
-
-export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/zsh-abbr/user-abbreviations.sh"
-export ABBR_AUTOLOAD=0
