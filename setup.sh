@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -u
+set -eu
 
 declare -r DOTFILE_REPO_URL="https://github.com/tanattyo/dotfiles"
 
@@ -11,7 +11,8 @@ function install_chezmoi() {
 
     if ! is_chezmoi_exists; then
         echo "chezmoi not found. Installing..."
-        sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+        mkdir -p "$HOME/.local/bin"
+        sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
         # Add ~/.local/bin to PATH if not already present
         if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
             export PATH="$HOME/.local/bin:$PATH"
@@ -21,7 +22,7 @@ function install_chezmoi() {
     fi
 
     # Initialize chezmoi with the dotfiles repository.
-    chezmoi init --apply $DOTFILE_REPO_URL
+    chezmoi init --apply "$DOTFILE_REPO_URL"
 }
 
 function install_mise() {
@@ -31,7 +32,7 @@ function install_mise() {
 
     if ! is_mise_exists; then
         echo "mise not found. Installing..."
-        curl https://mise.run | sh
+        curl -fsSL https://mise.run | sh
     else
         echo "mise is already installed."
     fi

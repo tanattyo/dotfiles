@@ -4,6 +4,7 @@
 
 # Set shell options
 setopt nonomatch
+typeset -U path PATH
 
 # --- PATH ---
 # Add a directory to PATH if it's not already included
@@ -18,16 +19,17 @@ fi
 
 # Go
 export GOENV_ROOT=$HOME/.goenv
-pathadd "$HOME/.goenv/shims:$HOME/.goenv/bin:$PATH"
-pathadd "$GOPATH/bin:$PATH"
+pathadd "$HOME/.goenv/shims"
+pathadd "$HOME/.goenv/bin"
+[[ -n "$GOPATH" ]] && pathadd "$GOPATH/bin"
 eval "$(goenv init -)"
 
 # Ruby
-pathadd "$HOME/.rbenv/bin:$PATH"
+pathadd "$HOME/.rbenv/bin"
 eval "$(rbenv init -)"
 
 # others
-pathadd "/Users/hayate-tanaka/.local/bin"
+pathadd "$HOME/.local/bin"
 
 # try
 eval "$(try init ~/src/tries)"
@@ -69,7 +71,7 @@ source_if_exists "$ZSH/oh-my-zsh.sh"
 
 # External plugins
 if [[ -d "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" ]]; then
-  fpath=("$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" $fpath)
+  fpath=("$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" "${fpath[@]}")
 fi
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/olets/zsh-abbr/zsh-abbr.plugin.zsh"
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/nyoungstudios/zsh-history-on-success/zsh-history-on-success.plugin.zsh"
