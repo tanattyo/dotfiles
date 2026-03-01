@@ -45,14 +45,42 @@ setopt hist_ignore_dups        # 重複コマンドを無視
 setopt hist_reduce_blanks      # 無駄な空白を無視
 
 # Oh-my-zsh other settings
-export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+if [[ -d "$HOME/.local/share/zsh/repos/github.com" ]]; then
+  export ZSH_PLUGIN_REPO_BASE="$HOME/.local/share/zsh/repos/github.com"
+else
+  export ZSH_PLUGIN_REPO_BASE="$HOME/.local/share/sheldon/repos/github.com"
+fi
+
+export ZSH="$ZSH_PLUGIN_REPO_BASE/ohmyzsh/ohmyzsh"
 
 CASE_SENSITIVE=true
 HIST_STAMPS="yyyy-mm-dd"
 COMPLETION_WAITING_DOTS=true
 
-# Sheldon plugin manager
-eval "$(sheldon source)"
+source_if_exists() {
+  local file="$1"
+  [[ -r "$file" ]] && source "$file"
+}
+
+# Load Oh My Zsh if present.
+ZSH_THEME=""
+plugins=()
+source_if_exists "$ZSH/oh-my-zsh.sh"
+
+# External plugins
+if [[ -d "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" ]]; then
+  fpath=("$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" $fpath)
+fi
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/olets/zsh-abbr/zsh-abbr.plugin.zsh"
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/nyoungstudios/zsh-history-on-success/zsh-history-on-success.plugin.zsh"
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/hlissner/zsh-autopair/zsh-autopair.plugin.zsh"
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/spaceship-prompt/spaceship-prompt/spaceship.zsh"
+source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+if [[ -x "$HOME/.local/bin/mise" ]]; then
+  eval "$("$HOME/.local/bin/mise" activate zsh)"
+fi
 
 export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.config/zsh-abbr/user-abbreviations.sh"
 export ABBR_AUTOLOAD=0
