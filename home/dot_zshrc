@@ -47,7 +47,6 @@ setopt hist_reduce_blanks      # 無駄な空白を無視
 # Oh-my-zsh other settings
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
-ENABLE_CORRECTION=true
 CASE_SENSITIVE=true
 HIST_STAMPS="yyyy-mm-dd"
 COMPLETION_WAITING_DOTS=true

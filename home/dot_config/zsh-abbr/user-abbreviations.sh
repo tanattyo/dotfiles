@@ -17,3 +17,7 @@ abbr lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=alw
 abbr lS='eza -1 --color=always --group-directories-first --icons'
 abbr lt='eza --tree --level=2 --color=always --group-directories-first --icons'
 abbr l.="eza -a | grep -E '^\.'"
+
+# git
+abbr g="git"
+abbr gst="git status"
