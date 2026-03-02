@@ -27,6 +27,15 @@
 - `chezmoi` 差分確認: `chezmoi diff`（利用可能な場合）
 - 適用確認: `chezmoi apply --dry-run --verbose`（利用可能な場合）
 
+## Agent Auto-Fix Loop
+
+- エージェントは必ず `make check` を実行してから作業を完了する
+- `make check` で NG が出た場合、次を優先して自動修正する
+- 修正対象: 構文エラー、未クォート変数、明らかなパスミス、壊れた alias、ハードコードされた `$HOME` パス
+- 非修正対象: 意図判断が必要な設定値・ツール選定・大規模リファクタ
+- 修正後は `make check` を再実行し、結果を共有する
+- `shellcheck` の `SC2034` と `SC1090` は zsh 設定では原則許容し、bash スクリプトの警告を優先する
+
 ## Safety
 
 - 破壊的操作（大量削除、履歴改変）は明示依頼がある場合のみ
