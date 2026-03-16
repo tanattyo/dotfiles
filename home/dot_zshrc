@@ -50,32 +50,28 @@ HISTFILE=~/.zsh_history        # 履歴ファイル
 setopt hist_ignore_dups        # 重複コマンドを無視
 setopt hist_reduce_blanks      # 無駄な空白を無視
 
-# Plugin settings
-export ZSH_PLUGIN_REPO_BASE="$HOME/.local/share/zsh/repos/github.com"
-export ZSH="$ZSH_PLUGIN_REPO_BASE/ohmyzsh/ohmyzsh"
+# --- Prompt ---
+_prompt_git_branch() {
+  git symbolic-ref --short HEAD 2>/dev/null | sed 's/^/ on /'
+}
+setopt PROMPT_SUBST
+PROMPT='%F{240}%D{%Y-%m-%d %H:%M:%S}%f %F{cyan}%1~%f$(_prompt_git_branch)
+%# '
 
-CASE_SENSITIVE=true
-HIST_STAMPS="yyyy-mm-dd"
-COMPLETION_WAITING_DOTS=true
+# --- Plugins ---
+export ZSH_PLUGIN_REPO_BASE="$HOME/.local/share/zsh/repos/github.com"
 
 source_if_exists() {
   local file="$1"
   [[ -r "$file" ]] && source "$file"
 }
 
-# Load Oh My Zsh if present.
-ZSH_THEME=""
-plugins=()
-source_if_exists "$ZSH/oh-my-zsh.sh"
-
-# External plugins
 if [[ -d "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" ]]; then
   fpath=("$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" "${fpath[@]}")
 fi
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/nyoungstudios/zsh-history-on-success/zsh-history-on-success.plugin.zsh"
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/hlissner/zsh-autopair/zsh-autopair.plugin.zsh"
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source_if_exists "$ZSH_PLUGIN_REPO_BASE/spaceship-prompt/spaceship-prompt/spaceship.zsh"
 source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if [[ -x "$HOME/.local/bin/mise" ]]; then
