@@ -1,79 +1,33 @@
-# zshrc: Configuration for zsh shell
-
-# Set shell options
 setopt nonomatch
 typeset -U path PATH
 
-# --- PATH ---
-# Add a directory to PATH if it's not already included
-pathadd() {
-  local dir="$1"
-  [[ ":$PATH:" != *":$dir:"* ]] && export PATH="$dir:$PATH"
-}
-# macOS Homebrew
-if [[ "$OSTYPE" == darwin* ]]; then
+if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+path=("$HOME/.local/bin" $path)
 
-# Go
-export GOENV_ROOT=$HOME/.goenv
-pathadd "$HOME/.goenv/shims"
-pathadd "$HOME/.goenv/bin"
-[[ -n "$GOPATH" ]] && pathadd "$GOPATH/bin"
-eval "$(goenv init -)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
 
-# Ruby
-pathadd "$HOME/.rbenv/bin"
-eval "$(rbenv init -)"
+export BROWSER='open'
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
 
-# others
-pathadd "$HOME/.local/bin"
-
-# try
-eval "$(try init ~/src/tries)"
-
-# --- Aliases ---
-# Editor
-alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
-
-# Git
 alias gst="git status"
 alias gco="git checkout"
 alias glog="git log --oneline --graph --decorate"
 
-# History configuration
-HISTSIZE=10000                 # 保存する履歴の数
-SAVEHIST=10000                 # 保存する履歴のファイルサイズ
-HISTFILE=~/.zsh_history        # 履歴ファイル
-setopt hist_ignore_dups        # 重複コマンドを無視
-setopt hist_reduce_blanks      # 無駄な空白を無視
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE="$HOME/.zsh_history"
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
 
-# --- Prompt ---
 _prompt_git_branch() {
   git symbolic-ref --short HEAD 2>/dev/null | sed 's/^/ on /'
 }
 setopt PROMPT_SUBST
 PROMPT='%F{240}%D{%Y-%m-%d %H:%M:%S}%f %F{cyan}%1~%f$(_prompt_git_branch)
 %# '
-
-# --- Plugins ---
-export ZSH_PLUGIN_REPO_BASE="$HOME/.local/share/zsh/repos/github.com"
-
-source_if_exists() {
-  local file="$1"
-  [[ -r "$file" ]] && source "$file"
-}
-
-if [[ -d "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" ]]; then
-  fpath=("$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-completions/src" "${fpath[@]}")
-fi
-source_if_exists "$ZSH_PLUGIN_REPO_BASE/nyoungstudios/zsh-history-on-success/zsh-history-on-success.plugin.zsh"
-source_if_exists "$ZSH_PLUGIN_REPO_BASE/hlissner/zsh-autopair/zsh-autopair.plugin.zsh"
-source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source_if_exists "$ZSH_PLUGIN_REPO_BASE/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-if [[ -x "$HOME/.local/bin/mise" ]]; then
-  eval "$("$HOME/.local/bin/mise" activate zsh)"
-fi

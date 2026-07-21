@@ -1,34 +1,21 @@
 # Chezmoi
 
-![CI](https://github.com/tanattyo/dotfiles/workflows/CI/badge.svg)
+最小限のシェル設定、Git設定、miseのランタイム設定を `chezmoi` で管理します。
 
-## chezmoi について
+## セットアップ
 
-- ソースディレクトリは `~/.local/share/chezmoi`
-- 構成ファイルは `~/.config/chezmoi/chezmoi.toml`
-- ドットファイルは `dot_` が対象です
+Homebrewが利用できるmacOSで次を実行します。
 
-## Quick start
-
-## Concept
-
-- dotfile を [chezmoi](https://github.com/twpayne/chezmoi) で管理します。
-- application は [brew](https://brew.sh/index_ja) で管理します。
-- Brew だけ手動でダウンロードし、他はほぼ自動でセットアップできるようにします。
-
-## 新しいマシンで使い始める
-
-```bash
-bash setup.sh
+```sh
+brew install chezmoi mise
+chezmoi init --apply https://github.com/tanattyo/dotfiles
+mise install
 ```
+
+Gitのユーザー情報は `~/.config/chezmoi/chezmoi.toml` に設定します。
 
 ```toml
 [data]
-    email="tanattyokana@gmail.com"
-    name="Hayate Tanaka"
+email = "you@example.com"
+name = "Your Name"
 ```
-
-## その他
-
-- Google 日本語入力は手動でインストールしてください
-<https://www.google.co.jp/ime/>
